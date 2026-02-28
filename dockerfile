@@ -1,18 +1,18 @@
 FROM python:3.11-slim
-
-# Set working directory
 WORKDIR /app
 
-# Copy project files
+# Install dependencies first (for caching)
 COPY requirements.txt /app/
-
-# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the rest of the app
 COPY . /app
 
-# Expose the port Uvicorn will run on
+# Set Python path for imports
+ENV PYTHONPATH=/app
+
+# Expose port
 EXPOSE 8000
 
-# Command to start the server
+# Start server
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
