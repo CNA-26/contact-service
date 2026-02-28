@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
-from app.database import db_pool
-from app.models import ContactRequest, UpdateStatus
+from database import db_pool
+from models import ContactRequest, UpdateStatus
 import logging
 from typing import Optional
 
