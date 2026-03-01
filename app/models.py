@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from typing import Literal, Optional
+from typing import Literal
 
 class ContactRequest(BaseModel):
     name: str
@@ -7,7 +7,6 @@ class ContactRequest(BaseModel):
     subject: str
     message: str
     ticket_type: Literal["support", "billing", "bug", "general"]
-    priority: Optional[Literal["low", "normal", "high"]] = "normal"
 
 class UpdateStatus(BaseModel):
     status: Literal["open", "in_progress", "resolved", "closed"]
