@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import tickets
+from routes import tickets
 
 app = FastAPI()
 
@@ -23,4 +23,4 @@ def root():
 # Health check endpoint
 @app.get("/health")
 def health():
-    return {"status": "ok"} 
+    return {"status": "ok"}
